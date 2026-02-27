@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Briefcase,
   Users,
@@ -18,7 +19,7 @@ import {
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import SectionHeader from '@/components/SectionHeader';
-import AreaIllustration from '@/components/illustrations/AreaIllustration';
+import { AREA_IMAGES, DEFAULT_IMAGE } from '@/lib/images';
 
 const iconMap: Record<string, LucideIcon> = {
   Briefcase,
@@ -200,12 +201,16 @@ export default function AreasPage() {
                   </div>
 
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <AreaIllustration
-                      areaName={area.title}
-                      colorFrom={area.color.split(' ')[0]}
-                      colorTo={area.color.split(' ')[1]}
-                      className="aspect-[4/3] rounded-2xl shadow-lg"
-                    />
+                    <div className="aspect-[4/3] rounded-2xl shadow-lg overflow-hidden relative">
+                      <Image
+                        src={AREA_IMAGES[area.title] || DEFAULT_IMAGE}
+                        alt={area.title}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </div>
                   </div>
                 </div>
 

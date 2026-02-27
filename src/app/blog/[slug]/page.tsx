@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, Calendar, Clock, Scale, User } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
-import BlogIllustration from '@/components/illustrations/BlogIllustration';
+import { getCategoryImage } from '@/lib/images';
 
 // Dados dos artigos
 const articles: Record<
@@ -95,9 +96,15 @@ export default function BlogPostPage({
     <>
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 relative overflow-hidden">
-        {/* Category illustration background */}
-        <div className="absolute right-0 top-0 w-[400px] h-[400px] opacity-[0.06] pointer-events-none hidden lg:block">
-          <BlogIllustration category={article.category} className="w-full h-full" />
+        {/* Category photo background */}
+        <div className="absolute inset-0">
+          <Image
+            src={getCategoryImage(article.category)}
+            alt={article.category}
+            fill
+            className="object-cover opacity-[0.10]"
+            sizes="100vw"
+          />
         </div>
         <div className="container-custom relative z-10">
           <AnimatedSection>

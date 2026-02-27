@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Scale,
   ArrowRight,
@@ -12,7 +13,7 @@ import AreaCard from '@/components/AreaCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import BlogCard from '@/components/BlogCard';
 import AnimatedSection from '@/components/AnimatedSection';
-import LawyerPortrait from '@/components/illustrations/LawyerPortrait';
+import { IMAGES } from '@/lib/images';
 
 const areas = [
   {
@@ -148,7 +149,15 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <div className="relative">
-                <LawyerPortrait className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl" />
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative">
+                  <Image
+                    src={IMAGES.lawyer}
+                    alt="Roberto Sartoro - Advogado"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
                 {/* Decorative badge */}
                 <div className="absolute -bottom-6 -right-6 bg-gold-500 text-white p-6 rounded-xl shadow-xl">
                   <div className="flex items-center gap-1 mb-1">
