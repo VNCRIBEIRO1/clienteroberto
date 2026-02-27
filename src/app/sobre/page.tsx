@@ -1,0 +1,271 @@
+'use client';
+
+import {
+  Scale,
+  GraduationCap,
+  Award,
+  Target,
+  Heart,
+  CheckCircle2,
+  BookOpen,
+  LucideIcon,
+} from 'lucide-react';
+import AnimatedSection from '@/components/AnimatedSection';
+import SectionHeader from '@/components/SectionHeader';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
+const valores: { icon: LucideIcon; title: string; desc: string }[] = [
+  {
+    icon: Scale,
+    title: 'Ética',
+    desc: 'Atuação estritamente conforme o Código de Ética da OAB e o Provimento 205/2021.',
+  },
+  {
+    icon: Heart,
+    title: 'Humanização',
+    desc: 'Cada cliente é tratado com empatia, respeito e atenção individualizada.',
+  },
+  {
+    icon: Target,
+    title: 'Transparência',
+    desc: 'Comunicação clara e honesta em todas as etapas da orientação jurídica.',
+  },
+  {
+    icon: Award,
+    title: 'Excelência',
+    desc: 'Busca constante por atualização e aprimoramento profissional.',
+  },
+];
+
+const formacao = [
+  {
+    year: '2016',
+    title: 'Graduação em Direito',
+    institution: 'Universidade Exemplo',
+  },
+  {
+    year: '2018',
+    title: 'Pós-Graduação em Direito Civil',
+    institution: 'Instituto Jurídico',
+  },
+  {
+    year: '2020',
+    title: 'Especialização em Direito do Trabalho',
+    institution: 'Faculdade de Direito',
+  },
+  {
+    year: '2022',
+    title: 'Mestrado em Direito Processual',
+    institution: 'Universidade Estadual',
+  },
+];
+
+export default function SobrePage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 right-10 w-72 h-72 bg-gold-500 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
+          <AnimatedSection>
+            <span className="inline-flex items-center gap-2 bg-gold-500/20 text-gold-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Scale className="w-4 h-4" />
+              Sobre o Escritório
+            </span>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+              Conheça o Escritório <br />
+              <span className="text-gold-400">Roberto Sartoro</span>
+            </h1>
+            <p className="text-primary-200 text-lg max-w-2xl">
+              Mais de uma década dedicada à advocacia ética e informativa em
+              Presidente Prudente e região.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Sobre */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div className="relative">
+                <div className="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl overflow-hidden flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <Scale className="w-24 h-24 text-primary-300 mx-auto mb-6" />
+                    <p className="text-primary-500 font-serif text-3xl font-bold">
+                      Roberto Sartoro
+                    </p>
+                    <p className="text-primary-400 mt-2">OAB/SP 000.000</p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-gold-500 text-white p-6 rounded-xl shadow-xl">
+                  <p className="text-3xl font-bold">10+</p>
+                  <p className="text-sm">Anos de Experiência</p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <h2 className="section-title">Nossa História</h2>
+              <div className="space-y-4 text-secondary-600 leading-relaxed">
+                <p>
+                  O escritório Roberto Sartoro Advogado nasceu da paixão pelo
+                  Direito e do desejo de oferecer orientação jurídica acessível
+                  e de qualidade em Presidente Prudente e região.
+                </p>
+                <p>
+                  Ao longo de mais de 10 anos de atuação, construímos uma
+                  trajetória baseada na ética, transparência e no compromisso
+                  com cada pessoa que nos procura em busca de informação e
+                  orientação.
+                </p>
+                <p>
+                  Nossa atuação é pautada pelo Código de Ética e Disciplina da
+                  OAB, pelo Provimento 205/2021 e pela convicção de que o acesso
+                  à informação jurídica é um direito de todos.
+                </p>
+                <p>
+                  Acreditamos que um advogado deve ser, antes de tudo, um
+                  orientador — alguém que esclarece, informa e aponta caminhos
+                  dentro da legalidade.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Valores */}
+      <section className="py-20 bg-secondary-50">
+        <div className="container-custom">
+          <AnimatedSection>
+            <SectionHeader
+              badge="Nossos Valores"
+              title="Princípios que Nos Guiam"
+              subtitle="Cada ação do escritório é guiada por valores sólidos que refletem nosso compromisso com a sociedade."
+            />
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {valores.map((valor, index) => {
+              const Icon = valor.icon;
+              return (
+              <AnimatedSection key={valor.title} delay={index * 0.1}>
+                <div className="card p-8 text-center h-full border border-secondary-100">
+                  <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                    <Icon className="w-8 h-8 text-primary-500" />
+                  </div>
+                  <h3 className="text-xl font-serif font-bold text-primary-500 mb-3">
+                    {valor.title}
+                  </h3>
+                  <p className="text-secondary-600 text-sm">{valor.desc}</p>
+                </div>
+              </AnimatedSection>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Formação */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <AnimatedSection>
+            <SectionHeader
+              badge="Formação Acadêmica"
+              title="Trajetória Profissional"
+              subtitle="Formação sólida e atualização constante para oferecer a melhor orientação."
+            />
+          </AnimatedSection>
+
+          <div className="max-w-3xl mx-auto">
+            {formacao.map((item, index) => (
+              <AnimatedSection key={item.year} delay={index * 0.1}>
+                <div className="flex gap-6 mb-8 last:mb-0">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="w-6 h-6 text-white" />
+                    </div>
+                    {index < formacao.length - 1 && (
+                      <div className="w-0.5 flex-1 bg-primary-200 mt-2" />
+                    )}
+                  </div>
+                  <div className="pb-8">
+                    <span className="inline-block text-xs font-bold text-gold-500 bg-gold-500/10 px-3 py-1 rounded-full mb-2">
+                      {item.year}
+                    </span>
+                    <h3 className="text-lg font-serif font-bold text-primary-500">
+                      {item.title}
+                    </h3>
+                    <p className="text-secondary-500 text-sm">
+                      {item.institution}
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compromissos OAB */}
+      <section className="py-20 bg-primary-500">
+        <div className="container-custom">
+          <AnimatedSection>
+            <SectionHeader
+              light
+              badge="Compromisso Ético"
+              title="Em Conformidade com a OAB"
+              subtitle="Todo o nosso trabalho respeita rigorosamente as normas éticas da Ordem dos Advogados do Brasil."
+            />
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              'Conteúdo meramente informativo, sem promessas de resultados',
+              'Respeito ao sigilo profissional e à confidencialidade',
+              'Conformidade com o Provimento 205/2021 da OAB',
+              'Atendimento ético sem captação indevida de clientes',
+              'Transparência em honorários e procedimentos',
+              'Conformidade com a LGPD para proteção de dados',
+            ].map((item, index) => (
+              <AnimatedSection key={item} delay={index * 0.05}>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-gold-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-primary-100">{item}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-secondary-50">
+        <div className="container-custom text-center">
+          <AnimatedSection>
+            <BookOpen className="w-12 h-12 text-primary-300 mx-auto mb-6" />
+            <h2 className="section-title">Quer Saber Mais?</h2>
+            <p className="section-subtitle mx-auto mb-8">
+              Entre em contato para uma consulta informativa ou visite nosso blog
+              para conteúdo jurídico educativo.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contato" className="btn-primary">
+                Fale Conosco
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+              <Link href="/blog" className="btn-outline">
+                Acessar o Blog
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+    </>
+  );
+}
